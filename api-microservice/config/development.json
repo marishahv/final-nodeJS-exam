@@ -1,0 +1,14 @@
+{
+  "app": {
+      "redis": {
+          "host": "127.0.0.1",
+          "port": 6379
+      },
+      "postgres": {
+        "host": "127.0.0.1",
+        "port": 5432,
+        "name": "examdb"
+    },
+    "_message": "I consider the info here like sensitive. And it should be in an .env file. Only for training purpose ;)"
+  }
+}

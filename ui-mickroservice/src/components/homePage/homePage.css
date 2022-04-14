@@ -1,0 +1,17 @@
+.content{
+  width: 80%;
+  margin: 0 auto;
+}
+
+.result-table {
+  margin-top: 30px;
+}
+
+.form {
+  display: flex;
+} 
+
+.text-field-wrapper {
+  width: 200px;
+  margin-right: 20px;
+}

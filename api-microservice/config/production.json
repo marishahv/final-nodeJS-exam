@@ -1,0 +1,14 @@
+{ 
+  "app": {
+      "redis": {
+          "host": "192.168.255.25",
+          "port": 6380
+      },
+      "postgres": {
+        "host": "192.168.255.25",
+        "port": 5433,
+        "name": "sequelize_database_prod"
+    },
+    "_message": "I consider the info here like sensitive. And it should be in an .env file. Only for training purpose ;)"
+  }
+}
