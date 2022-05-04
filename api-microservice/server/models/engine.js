@@ -15,6 +15,8 @@ const { sequelize } = require('../db');
     },
     {
       modelName: 'Engine',
+      tableName: 'Engine',
+      freezeTableName: true,
       sequelize
     }
   );

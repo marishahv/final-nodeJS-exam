@@ -11,14 +11,16 @@ import TablePagination from '@material-ui/core/TablePagination';
 import Paper from '@material-ui/core/Paper';
 import capitalize from 'lodash/capitalize';
 import noop from 'lodash/noop';
+import './resultTable.css'
 
 const useStyles = makeStyles({
   table: {
-    minWidth: 650,
+    minWidth: 500,
   },
-  margin: {
+  button: {
     margin: '15px',
-  },
+    whiteSpace: 'noWrap'
+  }
 });
 
 const createData = (id, type, power, speed, color) => {
@@ -52,9 +54,11 @@ const ResultsTable = ({ results, onDeleteClick, onMoreInfoClick, onUpdateClick }
               <TableCell align="left">{row.speed}</TableCell>
               <TableCell align="left">{capitalize(row.color)}</TableCell>
               <TableCell align="right">
-                <Button className={classes.margin} onClick={() => onMoreInfoClick(row.id)} variant="contained">More info</Button>
-                <Button className={classes.margin} onClick={() => onUpdateClick(row.id)} variant="contained">Update</Button>
-                <Button onClick={() => onDeleteClick(row.id)} variant="contained">Delete</Button>
+                <figure className='actions'>
+                  <Button className={classes.button} onClick={() => onMoreInfoClick(row.id)} variant="contained" sx={{whiteSpace:'nowrap'}}>More info</Button>
+                  <Button className={classes.button} onClick={() => onUpdateClick(row.id)} variant="contained">Update</Button>
+                  <Button  className={classes.button} onClick={() => onDeleteClick(row.id)} variant="contained">Delete</Button>
+                </figure>
               </TableCell>
             </TableRow>
           ))}

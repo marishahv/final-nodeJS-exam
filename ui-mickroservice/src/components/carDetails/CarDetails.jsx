@@ -8,7 +8,6 @@ const CarDetails = ({ id, open, handleClose }) => {
   const details = useFetchDetails(id);
   const title = 'Main characteristics.'
 
-  debugger;
   const actions = <Button onClick={handleClose}>Close</Button>;
 
   const message = (

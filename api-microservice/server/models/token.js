@@ -23,6 +23,8 @@ const { sequelize } = require('../db');
     }},
     {
       modelName: 'Token',
+      tableName: 'Token',
+      freezeTableName: true,
       sequelize
     }
   );

@@ -6,6 +6,13 @@ const USERS_LIMIT = 3;
 const ENGINES_LIMIT = 3;
 const CARS_LIMIT = 5;
 const CAR_BODIES_LIMIT = 5;
+const IMAGES = [
+  'https://imageio.forbes.com/specials-images/imageserve/5d35eacaf1176b0008974b54/2020-Chevrolet-Corvette-Stingray/0x0.jpg?fit=crop&format=jpg&crop=4560,2565,x790,y784,safe',
+  'https://ip.drivenn.ru/p56cgird7d53g_jkcytj.jpeg',
+  'https://auto.vercity.ru/img/magazine/2019/12/08/1575795946.jpg',
+  'https://img.avto25.ru/files/photostudio/af594f1ebefa5f2d5815e697481e0150',
+  'https://s5o.ru/storage/simple/ru/edt/4f/03/e3/d2/rue2b7ea55c00.jpg'
+]
 
 const createModelData = async (model, limit, fieldsObj) => {
   let dataList = [];
@@ -16,10 +23,9 @@ const createModelData = async (model, limit, fieldsObj) => {
       [field]: fieldsObj[field]()
     }), {})
 
-    dataList.push(dataObj);
+    dataList.push(dataObj); 
   }
 
-  await model.sync({force: true});
   return await model.bulkCreate(dataList);
 }
 
@@ -59,7 +65,9 @@ const createCars = async (engines = [], carBodies = []) => {
     const fieldsObj = {
       engine_id: enginesIds[random(enginesIds.length - 1)],
       carbody_id: carBodiesIds[random(carBodiesIds.length - 1)],
-      color: faker.vehicle.color()
+      color: faker.vehicle.color(),
+      speed: random(3, 100),
+      image: IMAGES[i]
     };
     
     carsData.push(fieldsObj); 
@@ -72,9 +80,9 @@ const initDB = async () => {
     await createUsers(); 
     const engines = await createEngines();
     const carBodies = await createCarBodies();
-    const cars = await createCars(); 
+    const cars = await createCars(engines, carBodies); 
   } catch (err) {
-    console.log("ERROR: ", err) 
+    console.log("ERROR: ", err)
   }
 }
 

@@ -3,11 +3,19 @@ const jwt = require('jsonwebtoken');
 const logger = require('../../logger');
 const { User, Token } = require('../../models');
 const getError = require('../../utils');
+const cors = require('cors')
+
+
 const router = express.Router();
 
 const secret = process.env.SECRET_TOKEN;
 
-router.post('/', async (req, res, next) => {
+const corsOptions = {
+  origin: "http://localhost:3000",
+}
+
+// Enable CORS for a Single Route
+router.post('/', cors(corsOptions), async (req, res, next) => {
   const { body: { email } } = req;
 
   const user = await User.findOne({ where: { email }});
