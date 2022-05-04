@@ -44,6 +44,8 @@ const { sequelize } = require('../db');
   },
     {
       modelName: 'Car',
+      tableName: 'Car',
+      freezeTableName: true,
       sequelize
     }
   );

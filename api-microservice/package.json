@@ -24,6 +24,7 @@
   },
   "scripts": {
     "dev": "cross-env NODE_ENV=development nodemon --inspect server/app.js",
+    "debug": "cross-env NODE_ENV=development nodemon --inspect-brk server/app.js",
     "prod": "cross-env NODE_ENV=production node server/app.js"
   },
   "eslintConfig": {
